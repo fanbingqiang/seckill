@@ -1,0 +1,27 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seckill?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: asdfghjkl123
+    hikari:
+      pool-name: DateHikariCP
+      min-pool-size: 5
+      idle-timeout: 18000
+      maximum-pool-size: 10
+      auto-commit: true
+      max-lifetime: 18000
+      connection-timeout: 3000
+      connection-test-query: SELECT 1
+
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.itheima.pojo
+
+
+logging:
+  level:
+    com.itheima.seckill: debug
