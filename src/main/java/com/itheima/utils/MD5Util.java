@@ -31,15 +31,15 @@ public class MD5Util {
 
 
 
-//    public static void main(String[] args) {
-//
-//        String inputPass = "123456";
-//        String userSalt = "1a2b3c4d";
-//
-//        String fromPass = inputPassToFromPass(inputPass);
-//        System.out.println("第一次加密结果：" + fromPass);
-//
-//        String dbPass = inputPassToDbPass(inputPass, userSalt);
-//        System.out.println("最终数据库密码：" + dbPass);
-//    }
+    public static void main(String[] args) {
+
+        String inputPass = "123456";
+        String userSalt = "1a2b3c4d";
+
+        String fromPass = inputPassToFromPass(inputPass);
+        System.out.println("第一次加密结果：" + fromPass);
+
+        String dbPass = inputPassToDbPass(inputPass, userSalt);
+        System.out.println("最终数据库密码：" + dbPass);
+    }
 }
