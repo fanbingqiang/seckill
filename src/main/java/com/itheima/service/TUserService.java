@@ -2,6 +2,8 @@ package com.itheima.service;
 
 import com.itheima.pojo.TUser;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.itheima.vo.LoginVo;
+import com.itheima.vo.RespBean;
 
 /**
 * @author ZhuanZ（无密码）
@@ -10,4 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface TUserService extends IService<TUser> {
 
+
+    RespBean dologin(LoginVo loginVo);
 }

@@ -4,6 +4,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.itheima.pojo.TUser;
 import com.itheima.service.TUserService;
 import com.itheima.mapper.TUserMapper;
+import com.itheima.utils.MD5Util;
+import com.itheima.utils.ValidatorUtil;
+import com.itheima.vo.LoginVo;
+import com.itheima.vo.RespBean;
+import com.itheima.vo.RespBeanEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +21,33 @@ import org.springframework.stereotype.Service;
 public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser>
     implements TUserService{
 
+    @Autowired
+    private TUserMapper tUserMapper;
+
+    //登录
+    @Override
+    public RespBean dologin(LoginVo loginVo) {
+        String moblie = loginVo.getMoblie();
+        String password = loginVo.getPassword();
+        //参数验证
+        if(moblie==null||password==null){
+            return RespBean.error(RespBeanEnum.LOGIN_ERROR);
+        }
+        if (!ValidatorUtil.isMobile(moblie)){
+            return RespBean.error(RespBeanEnum.MOBILE_ERRO);
+        }
+        //根据用户返回手机号
+        TUser tUser = tUserMapper.selectById(moblie);
+        if (tUser==null){
+            return RespBean.error(RespBeanEnum.LOGIN_ERROR);
+        }
+        //密码验证
+        if (!MD5Util.formPassToDbPass(password,tUser.getSlat()).equals(tUser.getPassword())){
+            return RespBean.error(RespBeanEnum.LOGIN_ERROR);
+        }
+
+        return RespBean.success();
+    }
 }
 
 

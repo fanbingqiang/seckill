@@ -1,4 +1,4 @@
-package com.itheima.utils.vo;
+package com.itheima.vo;
 
 
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ public class RespBean {
 
 
     public static RespBean success() {
-        return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBean.success().getMessage(), null);
+        return new RespBean(RespBeanEnum.SUCCESS.getCode(), RespBeanEnum.SUCCESS.getMessage(), null);
     }
 
     public static RespBean success(Object obj) {

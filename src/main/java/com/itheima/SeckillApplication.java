@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.itheima.pojo")
+@MapperScan("com.itheima.mapper")
 public class SeckillApplication {
 
     public static void main(String[] args) {
