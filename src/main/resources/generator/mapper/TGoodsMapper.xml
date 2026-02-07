@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.TGoodsMapper">
+
+    <resultMap id="BaseResultMap" type="com.itheima.pojo.TGoods">
+            <id property="id" column="id" />
+            <result property="goodsName" column="goods_name" />
+            <result property="goodsTitle" column="goods_title" />
+            <result property="goodsImg" column="goods_img" />
+            <result property="goodsDetail" column="goods_detail" />
+            <result property="goodsPrice" column="goods_price" />
+            <result property="goodsStock" column="goods_stock" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,goods_name,goods_title,goods_img,goods_detail,goods_price,
+        goods_stock
+    </sql>
+
+    <select id="findGoodsVo" resultMap="com.itheima.mapper.TSeckillGoodsMapper.BaseResultMap">
+        select
+            g.id,
+            g.goods_name,
+            g.goods_title,
+            g.goods_img,
+            g.goods_detail,
+            g.goods_price,
+            g.goods_stock,
+            sg.stock_count,
+            sg.start_date,
+            sg.end_date,
+            sg.seckill_price
+        from t_goods g
+        left join t_seckill_goods sg
+        on g.id = sg.goods_id
+    </select>
+
+    <select id="findGoodsVoById" resultMap="com.itheima.mapper.TSeckillGoodsMapper.BaseResultMap">
+        select
+            g.id,
+            g.goods_name,
+            g.goods_title,
+            g.goods_img,
+            g.goods_detail,
+            g.goods_price,
+            g.goods_stock,
+            sg.stock_count,
+            sg.start_date,
+            sg.end_date,
+            sg.seckill_price
+        from t_goods g
+                 left join t_seckill_goods sg
+                           on g.id = sg.goods_id
+        where g.id = #{goodsId}
+    </select>
+</mapper>
