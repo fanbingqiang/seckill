@@ -4,6 +4,8 @@ import com.itheima.pojo.TUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.itheima.vo.LoginVo;
 import com.itheima.vo.RespBean;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
 * @author ZhuanZ（无密码）
@@ -13,5 +15,5 @@ import com.itheima.vo.RespBean;
 public interface TUserService extends IService<TUser> {
 
 
-    RespBean dologin(LoginVo loginVo);
+    RespBean dologin(LoginVo loginVo, HttpServletRequest request, HttpServletResponse response);
 }
