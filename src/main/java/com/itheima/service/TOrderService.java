@@ -2,6 +2,8 @@ package com.itheima.service;
 
 import com.itheima.pojo.TOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.itheima.pojo.TUser;
+import com.itheima.vo.GoodsVo;
 
 /**
 * @author ZhuanZ（无密码）
@@ -10,4 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface TOrderService extends IService<TOrder> {
 
+    TOrder seckill(TUser user, GoodsVo goodsVo);
 }

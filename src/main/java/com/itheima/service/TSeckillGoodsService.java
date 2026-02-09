@@ -10,4 +10,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface TSeckillGoodsService extends IService<TSeckillGoods> {
 
+    void setStockCount(int i);
 }
