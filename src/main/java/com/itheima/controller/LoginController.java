@@ -2,6 +2,7 @@ package com.itheima.controller;
 
 import com.itheima.service.TUserService;
 import com.itheima.vo.LoginVo;
+import com.itheima.vo.RegisterVo;
 import com.itheima.vo.RespBean;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,9 +21,6 @@ public class LoginController {
     @Autowired
     private TUserService tUserService;
 
-    /**
-     * 跳转到登录页面
-     */
     @RequestMapping("/tologin")
     public String tologin(HttpServletRequest request) {
         String clientIp = request.getRemoteAddr();
@@ -30,16 +28,15 @@ public class LoginController {
         return "login";
     }
 
-    /**
-     * 处理用户登录请求
-     *
-     * @param loginVo 用户登录信息
-     * @return 登录结果响应体
-     */
     @RequestMapping("/dologin")
     @ResponseBody
     public RespBean dologin(@Valid LoginVo loginVo, HttpServletRequest request, HttpServletResponse response) {
-        return tUserService.dologin(loginVo,request,response);
+        return tUserService.dologin(loginVo, request, response);
     }
 
+    @RequestMapping("/register")
+    @ResponseBody
+    public RespBean register(@Valid RegisterVo registerVo) {
+        return tUserService.register(registerVo);
+    }
 }

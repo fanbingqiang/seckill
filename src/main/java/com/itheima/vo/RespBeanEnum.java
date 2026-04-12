@@ -15,7 +15,9 @@ public enum RespBeanEnum {
     USER_NOT_EXIST(500213, "用户不存在"),
     PASSWORD_ERROR(500214, "密码错误"),
     EMPTY_STOCK(500500, "库存不足"),
-    REPEATE_ERROR(500501, "重复下单");
+    REPEATE_ERROR(500501, "重复下单"),
+    REGISTER_ERROR(500210, "注册失败"),
+    MOBILE_EXIST(500215, "手机号已存在");
 
 
 
